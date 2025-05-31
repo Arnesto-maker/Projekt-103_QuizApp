@@ -1,0 +1,32 @@
+body{
+    background-color: #007AFF !important;
+}
+.container {
+    background-color: #007AFF !important;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.question-footer{
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(0, 0, 0, 0.4);
+    align-items: center;
+    padding-top: 16px;
+}
+.quiz-card{
+    width: 30rem
+}
+.quiz-answer-card:hover{
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.05)
+}
+.rightAnswer{
+    background-color: rgba(36, 128, 0, 0.412);
+    color: white;
+}
+.wrongAnswer{
+    background-color: red;
+    color: white;
+}

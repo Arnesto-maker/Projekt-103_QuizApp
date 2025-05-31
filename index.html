@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,49 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="assets/fonts/fonts.css">
 </head>
-<body>
-   
+
+<body onload = "init()">
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">QuizApp</span>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="card quiz-card">
+            <img src="assets/img/scrabble-4273252_1280.jpg" class="card-img-top" alt="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title" id="cardTitle">Frage</h5>
+                <div class="card mb-2 quiz-answer-card" onclick="answer('answers_1')">
+                    <div class="card-body " id="answer_1">
+                        Antwort
+                    </div>
+                </div>
+                <div class="card mb-2 quiz-answer-card" onclick="answer('answers_2')">
+                    <div class="card-body" id="answer_2" >
+                        Antwort
+                    </div>
+                </div>
+                <div class="card mb-2 quiz-answer-card" onclick="answer('answers_3')">
+                    <div class="card-body" id="answer_3">
+                        Antwort
+                    </div>
+                </div>
+                <div class="card mb-2 quiz-answer-card" onclick="answer('answers_4')">
+                    <div class="card-body" id="answer_4">
+                        Antwort
+                    </div>
+                </div>
+                <div class="question-footer">
+                    <span>
+                        <b id="questionNumber">1</b> von <b id="allQuestions"></b> Fragen
+                    </span>
+                    <button  class="btn btn-primary" onclick="nextQuestion()" id="myBtn">nächste Frage</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </body>
+<script src="script.js"></script>
+
 </html>
