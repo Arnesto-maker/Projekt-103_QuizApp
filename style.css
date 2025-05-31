@@ -16,11 +16,13 @@ body{
     padding-top: 16px;
 }
 .quiz-card{
-    width: 30rem
+    width: 30rem;
+    margin-top: 64px;
+    margin-bottom: 64px;
 }
 .quiz-answer-card:hover{
     cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.05)
+    background-color: rgba(0, 0, 0, 0.05);
 }
 .rightAnswer{
     background-color: rgba(36, 128, 0, 0.412);
