@@ -32,3 +32,9 @@ body{
     background-color: red;
     color: white;
 }
+.displayNone{
+    display: none;
+}
+.displayflexActive{
+    display: flex;
+}

@@ -19,7 +19,7 @@
     <div class="container">
         <div class="card quiz-card">
             <img src="assets/img/scrabble-4273252_1280.jpg" class="card-img-top" alt="card-img-top">
-            <div class="card-body">
+            <div class="card-body" id="card-body-1" >
                 <h5 class="card-title" id="cardTitle">Frage</h5>
                 <div class="card mb-2 quiz-answer-card" onclick="answer('answers_1')">
                     <div class="card-body " id="answer_1">
@@ -48,6 +48,9 @@
                     <button  class="btn btn-primary" onclick="nextQuestion()" id="myBtn">nächste Frage</button>
                 </div>
 
+            </div>
+            <div class="card-body displayNone" id="card-body-2">
+                <h1>Quiz beendet</h1>
             </div>
         </div>
     </div>

@@ -66,28 +66,37 @@ function showQuestionsLength() {
 }
 
 function showCurrentsQuestions() {
-    let question =  questions[currentQuestions];
-    let questionContainer = document.getElementById('cardTitle')
-    questionContainer.innerHTML = question.question;
+    if (currentQuestions >= questions.length) {
+        endScreenActive();
+    } else {
+        let question =  questions[currentQuestions];
+        let questionContainer = document.getElementById('cardTitle');
+        questionContainer.innerHTML = question.question;
+    }
+
 }
 
 
 function showCurrentAnswers() {
-    let question =  questions[currentQuestions];
-    let answer1 = document.getElementById('answer_1');
-    let answer2 = document.getElementById('answer_2');
-    let answer3 = document.getElementById('answer_3');
-    let answer4 = document.getElementById('answer_4');
-    answer1.innerHTML = question.answers_1
-    answer2.innerHTML = question.answers_2
-    answer3.innerHTML = question.answers_3
-    answer4.innerHTML = question.answers_4
+     if (currentQuestions >= questions.length) {
+        endScreenActive();
+    } else {
+        let question =  questions[currentQuestions];
+        let answer1 = document.getElementById('answer_1');
+        let answer2 = document.getElementById('answer_2');
+        let answer3 = document.getElementById('answer_3');
+        let answer4 = document.getElementById('answer_4');
+        answer1.innerHTML = question.answers_1
+        answer2.innerHTML = question.answers_2
+        answer3.innerHTML = question.answers_3
+        answer4.innerHTML = question.answers_4
+    }
 }
 
 
 function nextQuestion() {
-    if (trueAnswerSum === 1) {
-        currentQuestions= (currentQuestions + 1) % questions.length;
+  if (trueAnswerSum === 1) {
+        currentQuestions = (currentQuestions + 1);
         showCurrentsQuestions();
         showCurrentAnswers();
         showQuestionNumber();
@@ -102,7 +111,6 @@ function nextQuestion() {
 function showQuestionNumber() {
     let questionNumber = document.getElementById('questionNumber');
     questionNumber.innerHTML = currentQuestions + 1;
-    
 }
 
 function answer(parameter) {
@@ -142,11 +150,10 @@ function removeWrongAnswermarks() {
     let answer2 = document.getElementById('answer_2');
     let answer3 = document.getElementById('answer_3');
     let answer4 = document.getElementById('answer_4');
-    answer1.classList.remove("wrongAnswer")
-    answer2.classList.remove("wrongAnswer")
-    answer3.classList.remove("wrongAnswer")
-    answer4.classList.remove("wrongAnswer")
-    
+    answer1.classList.remove("wrongAnswer");
+    answer2.classList.remove("wrongAnswer");
+    answer3.classList.remove("wrongAnswer");
+    answer4.classList.remove("wrongAnswer");
 }
 
 function showRightAnswer() {
@@ -161,4 +168,12 @@ function disableBtn() {
 
 function enableBtn() {
     document.getElementById("myBtn").disabled = false;
+}
+
+function endScreenActive() {
+    inGameScreen = document.getElementById("card-body-1");
+    endScreen = document.getElementById("card-body-2");
+    inGameScreen.classList.add("displayNone")
+    endScreen.classList.add("displayflexActive")
+    
 }
