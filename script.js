@@ -53,6 +53,8 @@ let trueAnswerSum =  0;
 let falseAnswerSum = 0;
 let currentQuestions = 0;
 let trueAnswerSumEnding = 0;
+let audioSuccess = new Audio ("assets/audio/successMp3.mp3");
+let audioFail = new Audio("assets/audio/wrongMp3.mp3");
 
 
 
@@ -135,18 +137,20 @@ function showQuestionNumber() {
 function answer(parameter) {
     let question =  questions[currentQuestions];
     const keysArray = Object.keys(question);
-    if (question.right_answers === keysArray.indexOf(parameter) && trueAnswerSum === 0 && falseAnswerSum === 0 ) {
+    if (question.right_answers === keysArray.indexOf(parameter)) {
         let trueAnswer = document.getElementById('answer_'+String(keysArray.indexOf(parameter)));
         removeWrongAnswermarks();
         trueAnswer.classList.add("rightAnswer");
         trueAnswerSumEnding ++;
+        audioSuccess.play();
     } 
-     else if (falseAnswerSum === 0 && trueAnswerSum === 0) {
+     else {
          let falseAnswer =  document.getElementById('answer_'+String(keysArray.indexOf(parameter)));
          removeRightAnswerMarks();
          removeWrongAnswermarks();
          falseAnswer.classList.add("wrongAnswer");
-         showRightAnswer();   
+         showRightAnswer(); 
+         audioFail.play();  
      }
      enableBtn();
 }
@@ -205,11 +209,9 @@ function endScreenDeactive() {
 }
 
 function restartGame() {
-
      currentQuestions = 0;
      trueAnswerSumEnding = 0;
      showQuestionNumber();
      endScreenDeactive();
      init();
-     
 }
