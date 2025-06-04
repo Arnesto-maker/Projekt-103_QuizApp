@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz App</title>
+    <link rel="shortcut icon" href="assets/tropy.png" type="image/x-icon">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="assets/fonts/fonts.css">
@@ -19,6 +20,9 @@
     <div class="container">
         <div class="card quiz-card">
             <img src="assets/img/scrabble-4273252_1280.jpg" class="card-img-top" alt="card-img-top">
+            <div class="progress">
+                <div class="progress-bar" id="progressBar" role="progressbar" style="width: 0%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+            </div>
             <div class="card-body" id="card-body-1" >
                 <h5 class="card-title" id="cardTitle">Frage</h5>
                 <div class="card mb-2 quiz-answer-card" onclick="answer('answers_1')">
@@ -50,7 +54,17 @@
 
             </div>
             <div class="card-body displayNone" id="card-body-2">
-                <h1>Quiz beendet</h1>
+                <div class="cardBody2Img">
+                    <img src="assets/brain result.png" alt="" class="brainResult">
+                </div>
+                <h1 class="cardBody2H1">Quiz beendet</h1>
+                <div class="cardBody2Sub">
+                    du hast <b id="trueAnswerAmount">xxx</b> Fragen von <b id="amountOfAllQuestion"></b> richtig beantwortet
+                </div>
+                <div class="buttonRow">
+                    <button  class="btn btn-primary" onclick="restartGame()" id="myBtn">Erneut Spielen</button>
+                </div>
+                 
             </div>
         </div>
     </div>

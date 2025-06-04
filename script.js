@@ -52,9 +52,13 @@ let questions = [
 let trueAnswerSum =  0;
 let falseAnswerSum = 0;
 let currentQuestions = 0;
+let trueAnswerSumEnding = 0;
+
+
 
 function init() {
     showQuestionsLength();
+    showQuestionLengthEndScreen();
     showCurrentsQuestions();
     showCurrentAnswers();
     disableBtn();
@@ -65,17 +69,33 @@ function showQuestionsLength() {
     allQuestions.innerHTML = questions.length;
 }
 
+function showQuestionLengthEndScreen() {
+    let allQuestions = document.getElementById('amountOfAllQuestion')
+    allQuestions.innerHTML = questions.length;
+    
+}
+
+function showRightAnswerSum() {
+    answerSum = document.getElementById('trueAnswerAmount');
+    answerSum.innerHTML = trueAnswerSumEnding;
+    
+}
+
 function showCurrentsQuestions() {
     if (currentQuestions >= questions.length) {
         endScreenActive();
     } else {
+        let percent = (currentQuestions + 1 )/ questions.length;
+        percent = Math.round(percent*100);
+        progress = document.getElementById('progressBar');
+        progress.innerHTML= `${percent}%`
+        progress.style= `width: ${percent}%;`
         let question =  questions[currentQuestions];
         let questionContainer = document.getElementById('cardTitle');
         questionContainer.innerHTML = question.question;
     }
 
 }
-
 
 function showCurrentAnswers() {
      if (currentQuestions >= questions.length) {
@@ -93,9 +113,8 @@ function showCurrentAnswers() {
     }
 }
 
-
 function nextQuestion() {
-  if (trueAnswerSum === 1) {
+  if (trueAnswerSum = 1) {
         currentQuestions = (currentQuestions + 1);
         showCurrentsQuestions();
         showCurrentAnswers();
@@ -120,19 +139,17 @@ function answer(parameter) {
         let trueAnswer = document.getElementById('answer_'+String(keysArray.indexOf(parameter)));
         removeWrongAnswermarks();
         trueAnswer.classList.add("rightAnswer");
-        trueAnswerSum ++;
-        enableBtn()
+        trueAnswerSumEnding ++;
     } 
      else if (falseAnswerSum === 0 && trueAnswerSum === 0) {
          let falseAnswer =  document.getElementById('answer_'+String(keysArray.indexOf(parameter)));
          removeRightAnswerMarks();
          removeWrongAnswermarks();
          falseAnswer.classList.add("wrongAnswer");
-         showRightAnswer();
-         falseAnswerSum ++ ;
+         showRightAnswer();   
      }
+     enableBtn();
 }
-
 
 function removeRightAnswerMarks() {
     let answer1 = document.getElementById('answer_1');
@@ -175,5 +192,24 @@ function endScreenActive() {
     endScreen = document.getElementById("card-body-2");
     inGameScreen.classList.add("displayNone")
     endScreen.classList.add("displayflexActive")
+    showRightAnswerSum();
     
+}
+
+function endScreenDeactive() {
+    inGameScreen = document.getElementById("card-body-1");
+    endScreen = document.getElementById("card-body-2");
+    inGameScreen.classList.remove("displayNone")
+    endScreen.classList.remove("displayflexActive")
+    
+}
+
+function restartGame() {
+
+     currentQuestions = 0;
+     trueAnswerSumEnding = 0;
+     showQuestionNumber();
+     endScreenDeactive();
+     init();
+     
 }

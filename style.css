@@ -37,4 +37,26 @@ body{
 }
 .displayflexActive{
     display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.brainResult{
+    object-fit: cover;
+}
+.cardBody2Img{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.cardBody2H1{
+    text-align: center;
+}
+.cardBody2Sub{
+    font-weight: 700;
+    text-align: center;
+}
+.buttonRow{
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
 }
