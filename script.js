@@ -74,13 +74,11 @@ function showQuestionsLength() {
 function showQuestionLengthEndScreen() {
     let allQuestions = document.getElementById('amountOfAllQuestion')
     allQuestions.innerHTML = questions.length;
-    
 }
 
 function showRightAnswerSum() {
     answerSum = document.getElementById('trueAnswerAmount');
     answerSum.innerHTML = trueAnswerSumEnding;
-    
 }
 
 function showCurrentsQuestions() {
@@ -96,7 +94,6 @@ function showCurrentsQuestions() {
         let questionContainer = document.getElementById('cardTitle');
         questionContainer.innerHTML = question.question;
     }
-
 }
 
 function showCurrentAnswers() {
